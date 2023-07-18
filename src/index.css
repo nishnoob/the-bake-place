@@ -13,6 +13,18 @@ code {
     monospace;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 @media (min-width: 769px) {
   body {
     max-width: 1000px;

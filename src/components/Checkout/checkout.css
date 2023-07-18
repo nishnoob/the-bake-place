@@ -1,9 +1,12 @@
 .checkout-pane {
   background-color: white;
-  padding: 2em 2em 2em;
+  padding: 2em;
   -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
 }
 
 .checkout-pane .checkout-item {
@@ -67,6 +70,58 @@
   display: flex;
   align-items: center;
   padding: 0 8px;
-  width: 50px;
+  width: 80px;
   justify-content: flex-end;
+}
+.checkout-pane .checkout-item .mob-right {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkout-pane .checkout-btn {
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 4px;
+  font-size: 16px;
+  width: fit-content;
+  padding: 8px 16px;
+  align-self: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.checkout-pane .checkout-btn:hover {
+  background-color: lightgrey;
+}
+
+.empty-cart {
+  text-align: center;
+  padding: 2em 0;
+}
+.empty-cart .checkout-btn {
+  margin-top: 24px;
+}
+
+@media (max-width: 769px) {
+  .checkout-pane {
+    background-color: white;
+    padding: 1em;
+    margin: 0 16px;
+  }
+  .checkout-pane .checkout-item {
+    padding: 12px 0px;
+  }
+  .checkout-pane .checkout-item .mob-right {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .checkout-pane .checkout-item .price {
+    width: auto;
+  }
+  .checkout-pane .checkout-btn {
+    font-size: 16px;
+    margin-top: 24px;
+    width: 100%;
+    padding: 8px 9px;
+  }
 }

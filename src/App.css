@@ -14,6 +14,20 @@ header .checkout-link {
   border-radius: 4px;
 }
 
+header .back-btn {
+  border: none;
+  position: absolute;
+  left: 56px;
+  top: 50%;
+  transform: translateY(-45%);
+  transition: background-color 0.2s ease-in-out;
+  padding: 4px 5px 0px 4px;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+header .back-btn:hover,
 header .checkout-link:hover {
   background-color: lightgray;
 }
@@ -26,4 +40,24 @@ header .checkout-link .cart-notification {
   height: 8px;
   border-radius: 50%;
   background-color: red;
+}
+
+@media (max-width: 769px) {
+  header {
+    padding: 2em 0;
+  }
+  header .checkout-link {
+    right: 32px;
+  }
+  header .back-btn {
+    left: 32px;
+  }
+  header .back-btn:hover,
+  header .checkout-link:hover {
+    background-color: transparent;
+  }
+  header .back-btn:active,
+  header .checkout-link:active {
+    background-color: lightgray;
+  }
 }

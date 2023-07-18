@@ -8,17 +8,22 @@ const ProductCard = ({ product }) => {
     return (
         <div className="product-item">
           <img src={product.image} alt={product.title} />
-          <div className='product-title'>{product.title}</div>
-          <div className="product-actions">
-            {isInCart ? (
-              <>
-                <button className='remove' onClick={() => removeFromCart(product)}>−</button>
-                <span>{isInCart.quantity}</span>
-                <button className='add-more' onClick={() => addToCart(product)}>+</button>
-              </>
-            ) : (
-              <button className='add-to-cart' onClick={() => addToCart(product)}>Add to cart</button>
-            )}
+          <div className='product-detail'>
+            <div className='product-title'>{product.title}</div>
+            <div className="product-price">
+              <div>₹{product.price}</div>
+              <div className="product-actions">
+                {isInCart ? (
+                  <>
+                    <button className='remove' onClick={() => removeFromCart(product)}>−</button>
+                    <span>{isInCart.quantity}</span>
+                    <button className='add-more' onClick={() => addToCart(product)}>+</button>
+                  </>
+                ) : (
+                  <button className='add-to-cart' onClick={() => addToCart(product)}>Add to cart</button>
+                )}
+              </div>
+            </div>
           </div>
         </div>
     );
