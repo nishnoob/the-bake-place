@@ -1,0 +1,72 @@
+.checkout-pane {
+  background-color: white;
+  padding: 2em 2em 2em;
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.checkout-pane .checkout-item {
+  box-sizing: box-border;
+  display: flex;
+  padding: 12px 24px;
+  border-bottom: 1px dashed #b1b1b1;
+}
+
+.checkout-pane .checkout-item.last {
+  border-bottom: 2px solid black;
+}
+.checkout-pane .checkout-item.total {
+  justify-content: flex-end;
+  border-bottom: none;
+  font-weight: bold;
+}
+.checkout-pane .checkout-item.total .quantity {
+  padding-right: 24px;
+}
+
+.checkout-pane .checkout-item .item-title {
+  padding: 8px 0 0 16px;
+}
+
+.checkout-pane .checkout-item .spacer {
+  flex: 1;
+}
+
+.checkout-pane .checkout-item .left {
+  display: flex;
+}
+
+.checkout-pane .checkout-item .quantity {
+  display: flex;
+  max-width: 100px;
+  align-items: center;
+  padding: 0 8px;
+}
+.checkout-pane .checkout-item .quantity button {
+  padding: 5px;
+  font-size: 12px;
+  margin: 0 5px;
+  background: light-grey;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid rgba(0, 0, 0, 0);
+}
+
+.checkout-pane .checkout-item .quantity button.add-more {
+  border: 2px solid rgba(0, 255, 0, 0.4);
+  background-color: rgba(0, 255, 0, 0.1);
+}
+
+.checkout-pane .checkout-item .quantity button.remove {
+  border: 2px solid rgba(255, 0, 0, 0.4);
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.checkout-pane .checkout-item .price {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  width: 50px;
+  justify-content: flex-end;
+}
