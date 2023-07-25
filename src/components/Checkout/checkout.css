@@ -1,4 +1,5 @@
-.checkout-pane {
+.checkout-pane,
+.addon-pane {
   background-color: white;
   padding: 2em;
   -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
@@ -7,6 +8,48 @@
   display: flex;
   flex-direction: column;
   border-radius: 4px;
+}
+
+.addon-pane {
+  margin-bottom: 24px;
+  padding: 0;
+  flex-direction: row;
+  transition: height 0.2s ease-in-out;
+}
+.addon-pane .left,
+.addon-pane .right {
+  flex: 1;
+  padding-bottom: 2em;
+  height: auto;
+}
+
+.addon-pane .collapse-toggle {
+  transform: scale(1.2);
+  margin: 3px 8px 0 0;
+}
+
+.addon-pane .addon-header {
+  display: flex;
+}
+
+.addon-pane .left {
+  padding-left: 2em;
+}
+
+.addon-pane .left.collapsed {
+  padding-bottom: 0;
+}
+.addon-pane .right.collapsed {
+  height: 0;
+}
+
+.addon-pane .right .postcard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 2em;
+  margin: 2em 2em 0;
+  gap: 8px;
 }
 
 .checkout-pane .checkout-item {
@@ -98,15 +141,23 @@
   text-align: center;
   padding: 2em 0;
 }
+.empty-cart .empty-emoji {
+  font-size: 38px;
+  margin-bottom: 24px;
+}
 .empty-cart .checkout-btn {
   margin-top: 24px;
 }
 
 @media (max-width: 769px) {
-  .checkout-pane {
+  .checkout-pane,
+  .addon-pane {
     background-color: white;
     padding: 1em;
     margin: 0 16px;
+  }
+  .addon-pane {
+    margin-bottom: 24px;
   }
   .checkout-pane .checkout-item {
     padding: 12px 0px;

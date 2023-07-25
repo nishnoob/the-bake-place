@@ -3,9 +3,11 @@ import { CartContext } from "../../utils/cartContext";
 import "./checkout.css";
 import ReactConfetti from "react-confetti";
 import { useNavigate } from "react-router-dom";
+import CheckoutItem from "./CheckoutItem";
+import Addons from "./Addons";
 
 const Checkout = () => {
-    const {cart, addToCart, removeFromCart, total, emptyCart} = useContext(CartContext);
+    const {cart, total, emptyCart} = useContext(CartContext);
     const [showConfetti, setShowConfetti] = useState(false);
     const navigate = useNavigate();
 
@@ -22,47 +24,35 @@ const Checkout = () => {
     const handleNavigate = () => navigate(-1);
 
     return (
-        <div className="checkout-pane">
-            {cart.length > 0 ? (
-                <>
-                    {cart.map((product, index) => (
-                        <div key={product.id} className={`checkout-item ${index === (cart.length - 1) && 'last'}`}>
-                            <div className="left">
-                                <img src={product.image} alt={product.title} width={50} />
-                                <div className="item-title">{product.title}</div>
+        <>
+            <Addons />
+            <div className="checkout-pane">
+                {cart.length > 0 ? (
+                    <>
+                        {cart.map((product, index) => (
+                            <CheckoutItem product={product} index={index} />
+                        ))}
+                        <div className="checkout-item total">
+                            <div className="quantity">
+                                Total
                             </div>
-                            <div className="spacer"></div>
-                            <div className="mob-right">
-                                <div className="quantity">
-                                    <button className='remove' onClick={() => removeFromCart(product)}>−</button>
-                                    <span>{product.quantity}</span>
-                                    <button className='add-more' onClick={() => addToCart(product)}>+</button>
-                                </div>
-                                <div className="price">
-                                ₹{product.price * product.quantity}
-                                </div>
+                            <div className="price">
+                            ₹{total.toFixed(2)}
                             </div>
                         </div>
-                    ))}
-                    <div className="checkout-item total">
-                        <div className="quantity">
-                            Total
-                        </div>
-                        <div className="price">
-                        ₹{total.toFixed(2)}
-                        </div>
+                        <button className="checkout-btn" onClick={handleCheckout}>Checkout</button>
+                    </>
+                ) : (
+                    <div className="empty-cart">
+                        <div className="empty-emoji">¯\_(ツ)_/¯</div>
+                        <div>Your cart seems to be empty!</div>
+                        <div>Why not add something from our freshly baked items.</div>
+                        <button className="checkout-btn" onClick={handleNavigate}>See baked items</button>
                     </div>
-                    <button className="checkout-btn" onClick={handleCheckout}>Checkout</button>
-                </>
-            ) : (
-                <div className="empty-cart">
-                    <div>Your cart seems to be empty!</div>
-                    <div>Why not add something from our freshly baked items.</div>
-                    <button className="checkout-btn" onClick={handleNavigate}>See baked items</button>
-                </div>
-            )}
-            {showConfetti && <ReactConfetti recycle={false} onConfettiComplete={handleConfettiComplete} />}
-        </div>
+                )}
+                {showConfetti && <ReactConfetti recycle={false} onConfettiComplete={handleConfettiComplete} />}
+            </div>
+        </>
     );
 }
 
